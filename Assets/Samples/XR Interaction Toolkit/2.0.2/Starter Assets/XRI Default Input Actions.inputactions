@@ -1086,17 +1086,37 @@
                     "processors": "",
                     "interactions": "",
                     "initialStateCheck": false
+                },
+                {
+                    "name": "Change Color",
+                    "type": "Value",
+                    "id": "a562f80d-f803-4566-bd14-750db0897f74",
+                    "expectedControlType": "Axis",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": true
                 }
             ],
             "bindings": [
                 {
                     "name": "",
                     "id": "3d9d1042-d0de-4d17-afff-0b11ab36292f",
-                    "path": "<WMRSpatialController>/triggerPressed",
+                    "path": "<XRController>/primaryButton",
                     "interactions": "",
                     "processors": "",
                     "groups": "Generic XR Controller",
                     "action": "Select",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "68484975-1343-4890-8a08-61d5c0693991",
+                    "path": "<XRController>{LeftHand}/trigger",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Change Color",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }

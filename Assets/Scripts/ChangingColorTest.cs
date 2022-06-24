@@ -21,6 +21,7 @@ public class ChangingColorTest : MonoBehaviour
 
     private void Update()
     {
+        if (!isActiveAndEnabled) return;
         float value = colorReference.action.ReadValue<float>();
         UpdateColor(value);
     }
