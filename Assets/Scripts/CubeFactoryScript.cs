@@ -14,6 +14,7 @@ public class CubeFactoryScript : MonoBehaviour
     public GameObject BlueSlider = null;
 
     private GameObject currentCube;
+    private GameObject heldCube;
     private MeshRenderer meshRenderer;
 
     // Start is called before the first frame update
@@ -22,18 +23,23 @@ public class CubeFactoryScript : MonoBehaviour
         foreach (XRRayInteractor interactor in Interactors)
         {
             interactor.selectEntered.AddListener(SelectMethods);
+            interactor.selectExited.AddListener(ExitedMethods);
         }
         replaceCube();
-
     }
+
 
     private void SelectMethods(SelectEnterEventArgs arg0)
     {
         if (!arg0.interactableObject.transform.gameObject.Equals(currentCube)) return;
-        
-        currentCube.GetComponent<Rigidbody>().isKinematic = false;
-        Debug.Log(currentCube.GetComponent<Rigidbody>().isKinematic);
+        heldCube = currentCube;
         replaceCube();
+    }
+    private void ExitedMethods(SelectExitEventArgs arg0)
+    {
+        if (!arg0.interactableObject.transform.gameObject.Equals(heldCube)) return;
+        heldCube.GetComponent<Rigidbody>().isKinematic = false;
+        heldCube = null;
     }
 
     private void replaceCube()
